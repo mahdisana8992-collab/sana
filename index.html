@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مهدی ❤️ سنا | داستان عشق ما</title>
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* ========= Reset & Base ========= */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0f0710;
+  --primary: #ff2a6d;
+  --secondary: #d100d1;
+  --glass: rgba(255, 255, 255, 0.05);
+  --text: #ffffff;
+  --text-dim: #b3a8b5;
+  --gradient: linear-gradient(45deg, #ff2a6d, #d100d1, #ff2a6d);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Vazirmatn', sans-serif; background: var(--bg); color: var(--text); overflow-x: hidden; }
+
+/* ========= Background Hearts ========= */
+.hearts-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 0; overflow: hidden; }
+.heart { position: absolute; bottom: -50px; color: var(--primary); opacity: 0.3; animation: floatUp 10s linear infinite; }
+@keyframes floatUp {
+  0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  20% { opacity: 0.5; }
+  100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* ========= Layout ========= */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1; }
+section { padding: 100px 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; }
+
+/* ========= Hero ========= */
+.hero { text-align: center; }
+.hero-card {
+  background: var(--glass); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 30px;
+  padding: 60px 40px; box-shadow: 0 20px 60px rgba(255, 42, 109, 0.2);
+  animation: fadeIn 1.5s ease-out;
+}
+.hero-title { font-size: clamp(2rem, 6vw, 4rem); font-weight: 900; margin-bottom: 20px; }
+.hero-title span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.hero-subtitle { font-size: 1.2rem; color: var(--text-dim); margin-bottom: 40px; line-height: 1.8; }
+.heart-icon { font-size: 5rem; color: var(--primary); animation: heartbeat 1.5s infinite; display: inline-block; margin: 20px 0; filter: drop-shadow(0 0 20px rgba(255,42,109,0.6)); }
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.2); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.1); }
+}
+
+/* ========= Gallery ========= */
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 40px; }
+.photo-card {
+  position: relative; border-radius: 20px; overflow: hidden;
+  border: 2px solid rgba(255, 42, 109, 0.3); transition: 0.4s;
+  background: #1a0a10; /* رنگ پس‌زمینه در صورت لود نشدن عکس */
+  aspect-ratio: 4/5; /* نسبت ابعاد عکس */
+}
+.photo-card:hover { transform: translateY(-10px); border-color: var(--primary); box-shadow: 0 15px 30px rgba(255,42,109,0.3); }
+.photo-card img { width: 100%; height: 100%; object-fit: cover; object-position: top center; display: block; transition: transform 0.5s; }
+.photo-card:hover img { transform: scale(1.05); }
+.photo-caption {
+  position: absolute; bottom: 0; width: 100%; padding: 20px;
+  background: linear-gradient(to top, rgba(15,7,16,0.95), transparent);
+  text-align: center; font-weight: 700; font-size: 1.2rem;
+}
+
+/* ========= Quotes ========= */
+.quotes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 40px; }
+.quote-card {
+  background: var(--glass); border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px; padding: 30px; position: relative;
+  transition: 0.3s; backdrop-filter: blur(10px);
+}
+.quote-card:hover { background: rgba(255, 42, 109, 0.1); border-color: var(--primary); }
+.quote-card i { color: var(--primary); font-size: 2rem; margin-bottom: 15px; opacity: 0.5; }
+.quote-card p { font-size: 1.1rem; line-height: 1.9; font-weight: 300; }
+
+/* ========= Counter ========= */
+.counter-box {
+  background: var(--glass); border-radius: 30px; padding: 40px;
+  text-align: center; border: 1px solid rgba(255,255,255,0.1);
+  margin-top: 50px; backdrop-filter: blur(20px);
+}
+.counter-num { font-size: 3.5rem; font-weight: 900; background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+/* ========= Section Titles ========= */
+.section-title { text-align: center; font-size: 2.5rem; font-weight: 900; margin-bottom: 20px; }
+.section-title span { color: var(--primary); }
+
+/* ========= Responsive ========= */
+@media (max-width: 768px) {
+  .gallery-grid, .quotes-grid { grid-template-columns: 1fr; }
+  .hero-card { padding: 40px 20px; }
+  .counter-num { font-size: 2.5rem; }
+}
+
+@keyframes fadeIn { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<!-- قلب‌های متحرک پس‌زمینه -->
+<div class="hearts-bg" id="hearts-bg"></div>
+
+<!-- بخش اصلی (هیرو) -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-card">
+      <h1 class="hero-title">داستان عشق <span>مهدی</span> و <span>سنا</span></h1>
+      <div class="heart-icon"><i class="fas fa-heart"></i></div>
+      <p class="hero-subtitle">
+        به دنیای خصوصی من و تو خوش آمدی.<br>
+        جایی که هر لحظه‌اش پر از خاطره، عشق و آرامشه. <br>
+        <strong>سنا بهروزی، تو زیباترین اتفاق زندگی منی.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- گالری عکس‌ها -->
+<section id="gallery" style="background: rgba(0,0,0,0.2);">
+  <div class="container">
+    <h2 class="section-title">لحظه‌های <span>ماندگار</span></h2>
+    <div class="gallery-grid">
+      
+      <!-- عکس سنا -->
+      <div class="photo-card">
+        <!-- ✅ مسیر عکس به پوشه images آپدیت شد -->
+        <img src="images/sana.jpg" alt="سنا بهروزی" onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend', '<div style=\'display:flex;height:100%;align-items:center;justify-content:center;color:#ff2a6d\'>عکس پیدا نشد (images/sana.jpg)</div>')">
+        <div class="photo-caption">سنا جانم ❤️</div>
+      </div>
+
+      <!-- عکس مهدی -->
+      <div class="photo-card">
+        <!-- ✅ مسیر عکس به پوشه images آپدیت شد -->
+        <img src="images/mehdi.jpg" alt="مهدی حاجی علیلو" onerror="this.style.display='none'; this.parentElement.insertAdjacentHTML('beforeend', '<div style=\'display:flex;height:100%;align-items:center;justify-content:center;color:#ff2a6d\'>عکس پیدا نشد (images/mehdi.jpg)</div>')">
+        <div class="photo-caption">مهدی من 💪</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- جملات عاشقانه -->
+<section id="quotes">
+  <div class="container">
+    <h2 class="section-title">حرف‌های <span>دلم</span></h2>
+    <div class="quotes-grid">
+      <div class="quote-card">
+        <i class="fas fa-quote-right"></i>
+        <p>سنا، تو مثل خورشیدی که بعد از یه شب طولانی طلوع می‌کنه. با اومدنت، تمام تاریکی‌های زندگی من روشن شد.</p>
+      </div>
+      <div class="quote-card">
+        <i class="fas fa-quote-right"></i>
+        <p>هیچ‌وقت فکر نمی‌کردم یه نفر بتونه این‌قدر قلبم رو تسخیر کنه. اما تو ثابت کردی که عشق واقعی وجود داره.</p>
+      </div>
+      <div class="quote-card">
+        <i class="fas fa-quote-right"></i>
+        <p>هر روز که بیدار می‌شم، اولین فکرم تویی. و آخرین فکرم قبل از خواب هم، لبخند توئه. عاشقتم سنا.</p>
+      </div>
+      <div class="quote-card">
+        <i class="fas fa-quote-right"></i>
+        <p>تو بهترین بخش زندگی منی. ممنونم که هستی و ممنونم که اجازه دادی توی قلب من زندگی کنی.</p>
+      </div>
+    </div>
+    
+    <!-- شمارنده عشق -->
+    <div class="counter-box">
+      <h3 style="color: var(--text-dim); margin-bottom: 10px;">مدت زمان عشق ما</h3>
+      <div class="counter-num">۶ ماه</div>
+      <p style="color: var(--text-dim); font-size: 1.2rem; margin-top: 10px;">و تا ابد ادامه دارد...</p>
+    </div>
+  </div>
+</section>
+
+<!-- اسکریپت‌ها (برای قلب‌های متحرک) -->
+<script>
+  const heartsBg = document.getElementById('hearts-bg');
+  const heartsCount = 25;
+  for (let i = 0; i < heartsCount; i++) {
+    const heart = document.createElement('div');
+    heart.classList.add('heart');
+    heart.innerHTML = '<i class="fas fa-heart"></i>';
+    heart.style.left = Math.random() * 100 + 'vw';
+    heart.style.animationDuration = (Math.random() * 5 + 5) + 's';
+    heart.style.animationDelay = Math.random() * 5 + 's';
+    heart.style.fontSize = (Math.random() * 20 + 10) + 'px';
+    heartsBg.appendChild(heart);
+  }
+</script>
+</body>
+</html>
